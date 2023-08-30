@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "wows-replays"
+version = "0.1.0"
+description = "Utilities for World of Warships replay files."
+authors = ["padtrack <vzhou408@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+packages = [
+    { include = "replay_unpack", from = "src" },
+]
+
+# TODO: add packages and scripts
+
+[tool.poetry.urls]
+Funding = "https://ko-fi.com/trackpad"
+
+[tool.poetry.dependencies]
+lxml = "^4.9.3"
+packaging = "^23.1"
+pycryptodomex = "^3.18.0"
+pydantic = "^2.0.3"
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+maturin = "^1.1.0"
+black = "^23.7.0"
+pympler = "^1.0.1"
+pytest = "^7.4.0"
+pytest-benchmark = "^4.0.0"
+
+[tool.ruff]
+line-length = 100
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+
+[build-system]
+requires = ["maturin>=1.1,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
